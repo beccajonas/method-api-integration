@@ -3,8 +3,9 @@
 To run:
 1. Clone this repo to your local machine
 2. Navigate into the directory:
-   ```bash
+```
    cd <your-directory-name>
+```
 3. run the following commands
 ```
 npm init -y                
