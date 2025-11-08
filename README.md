@@ -2,9 +2,12 @@
 
 To run:
 1. Clone this repo to your local machine
-2. Navigate into the directory:
 ```
-   cd <your-directory-name>
+git clone https://github.com/beccajonas/method-api-integration.git
+```
+3. Navigate into the directory:
+```
+   cd method-api-integration
 ```
 3. run the following commands
 ```
