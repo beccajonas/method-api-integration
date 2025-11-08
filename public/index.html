@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Method API Test</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    pre {
+      background: #f7f7f7;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>Fetch Method Accounts (Dev Only: dev.methodfi.com)</h2>
+
+  <label>API Key</label>
+  <input id="apiKey" type="password" placeholder="Enter your API key" />
+
+  <label>Holder ID (entityId)</label>
+  <input id="holderId" placeholder="ent_XXXXXXXXXXXX" />
+
+  <button id="fetchBtn">Fetch Accounts</button>
+
+  <h3>Response:</h3>
+  <pre id="responseBox">{}</pre>
+
+<script>
+document.getElementById("fetchBtn").addEventListener("click", async () => {
+  const apiKey = document.getElementById("apiKey").value.trim();
+  const holderId = document.getElementById("holderId").value.trim();
+  const responseBox = document.getElementById("responseBox");
+
+  if (!apiKey || !holderId) {
+    alert("Please enter both API key and holder ID.");
+    return;
+  }
+
+  responseBox.textContent = "Loading...";
+
+  try {
+    const res = await fetch("/fetch-accounts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ apiKey, holderId }),
+    });
+
+    const result = await res.json();
+
+    if (Array.isArray(result.data) && result.data.length === 0) {
+      responseBox.textContent =
+        "No accounts found. Please check your entity ID or make sure this entity has account(s).";
+    } else {
+      responseBox.textContent = JSON.stringify(result, null, 2);
+    }
+  } catch (err) {
+    responseBox.textContent = "Error: " + err.message;
+  }
+});
+</script>
+
+
+</body>
+</html>
