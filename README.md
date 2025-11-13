@@ -1,19 +1,21 @@
-# Retreiving Accounts For An Entity (Method)
+# Retrieving Accounts For An Entity (Method)
 
 To run:
 1. Clone this repo to your local machine
 ```
 git clone https://github.com/beccajonas/method-api-integration.git
 ```
-3. Navigate into the directory:
+2. Navigate into the directory:
 ```
-   cd method-api-integration
+cd method-api-integration
 ```
-3. run the following commands
+3. Install dependencies:
 ```
-npm init -y                
-npm install express axios
+npm install
+```
+4. Start the server:
+```
 node server.js
 ```
-4. Visit http://localhost:3000
-5. Enter your Method API key for the Development environment (`dev.methodfi.com`) and Entity ID and hit `Fetch Accounts` to get a list of accounts for the given Entity ID
+5. Visit http://localhost:3000
+6. Enter your Method API key for the Development environment (`dev.methodfi.com`) and Entity ID and hit `Fetch Accounts` to get a list of accounts for the given Entity ID
