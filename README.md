@@ -1,6 +1,8 @@
 # Method Account Retrieval Integration
 
 A demo application for retrieving accounts for a given entity using the Method API dev sandbox.
+<img width="641" height="756" alt="Screenshot 2025-11-12 at 10 33 46 PM" src="https://github.com/user-attachments/assets/924ccf19-b48f-4910-8a23-78ed9b71fddc" />
+
 
 ## Overview
 
